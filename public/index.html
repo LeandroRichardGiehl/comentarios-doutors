@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliações de Médicos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 50%;
+            margin: 0 auto;
+        }
+        .comment-box {
+            margin-bottom: 20px;
+        }
+        .comment {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .stars {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        .stars input {
+            display: none;
+        }
+        .stars label {
+            cursor: pointer;
+            width: 1em;
+            font-size: 2rem;
+            color: #ccc;
+        }
+        .stars input:checked ~ label {
+            color: #FFD700;
+        }
+        .stars input:not(:checked) ~ label:hover,
+        .stars input:not(:checked) ~ label:hover ~ label {
+            color: #FFD700;
+        }
+        .stars input:checked ~ label:hover,
+        .stars input:checked ~ label:hover ~ label,
+        .stars input:checked ~ label:hover ~ label ~ label {
+            color: #FFD700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Comentários e Avaliações</h1>
+        <div class="comment-box">
+            <input type="text" id="userName" placeholder="Seu Nome"><br>
+            <textarea id="comment" rows="4" placeholder="Seu Comentário"></textarea><br>
+            <div class="stars">
+                <input type="radio" id="star5" name="rating" value="5"><label for="star5">&#9733;</label>
+                <input type="radio" id="star4" name="rating" value="4"><label for="star4">&#9733;</label>
+                <input type="radio" id="star3" name="rating" value="3"><label for="star3">&#9733;</label>
+                <input type="radio" id="star2" name="rating" value="2"><label for="star2">&#9733;</label>
+                <input type="radio" id="star1" name="rating" value="1"><label for="star1">&#9733;</label>
+            </div>
+            <button id="submitCommentButton" onclick="submitComment()">Enviar Comentário</button>
+        </div>
+        <div id="comments"></div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
